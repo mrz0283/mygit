@@ -13,7 +13,7 @@ import com.im.pojo.Invitation;
 import com.im.service.InvitationService;
 
 /**
- * @author mrz
+ * @author mrz123
  * @category 控制器
  */
 @Controller
