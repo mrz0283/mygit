@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.im.dao.InvitationDao">
+
+	<!-- 查询所有 -->
+  <select id="find" resultType="Invitation">
+  select * from invitation
+  </select>
+	<!-- 根据帖子编号查询帖子 -->
+ <select id="findById" parameterType="int" resultType="Invitation">
+  select * from invitation where id = #{id}
+ </select>		
+	<!-- 添加帖子 -->
+<insert id="insert" parameterType="Invitation">
+ insert into invitation(title,summary,author,createdate)values
+ (#{title},#{summary},#{author},#{createdate})
+</insert>
+	<!-- 删除帖子 -->
+	<delete id="delete">
+		delete from invitation
+		<where>
+			id in
+			<foreach collection="array" item="id" open="(" separator="," close=")">
+				#{id}
+			</foreach>
+		</where>
+	</delete>
+	
+	<!-- 修改（更新）帖子 -->
+	<update id="update" parameterType="Invitation">
+		update invitation 
+		<trim suffix=" " suffixOverrides=",">
+			<set>
+				<if test="title!=null">
+					title = #{title},
+				</if>
+				<if test="summary!=null">
+					summary=#{summary},
+				</if>
+				<if test="author!=null">
+					author=#{author}
+				</if>
+			</set>
+		</trim>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+	<!-- 根据title进行模糊查询 -->
+	<select id="search" resultType="Invitation">
+	select * from invitation where title like '%${title}%' or summary like '%${title}%' or author like '%${title}%' 
+	</select>
+	
+	
+	
+	
+</mapper>
+	
