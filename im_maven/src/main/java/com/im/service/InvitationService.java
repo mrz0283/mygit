@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.im.pojo.Invitation;
 
 /**
- * @author 刘若晨
+ * @author mrz
  * @category 业务逻辑
  */
 public interface InvitationService {

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * @author 刘若晨
+ * @author mrz
  * @category 帖子的实体类
  */
 public class Invitation {

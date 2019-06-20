@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.im.pojo.Invitation;
 
 /**
- * @author 刘若晨
+ * @author mrz
  * @category 帖子的数据访问接口
  */
 public interface InvitationDao {
